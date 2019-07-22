@@ -10,6 +10,7 @@ console.log(props);
       <p>{props.formData.name}</p>
     </div>
   );
+  
 };
 
 export default WaitingList;
