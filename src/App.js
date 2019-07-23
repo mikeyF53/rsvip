@@ -7,7 +7,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      // customerData: [],
+      customerData: [],
       formData: {
         name: '',
         phone: '',
@@ -30,22 +30,27 @@ class App extends Component {
       }
     }));
   }
-  // When submitted it stores in state in the INFO object
+
   handleSubmit(e) {
-    e.preventDefault()
-    const customer = {
+    e.preventDefault();
+    const customerData = {
       name: this.state.formData.name,
       phone: this.state.formData.phone,
       adults: this.state.formData.adults,
       highChair: this.state.formData.highChair,
       booster: this.state.formData.booster,
-      message: this.state.formData.message,
-    }
-    const oldItems = JSON.parse(localStorage.getItem('customer')) || [];
-    oldItems.push(customer);
-    localStorage.setItem('customer',JSON.stringify(oldItems));// storing state in LS
-    // console.log(oldItems.forEach(e => {console.log(e.name)}));
-    
+      message: this.state.formData.message
+    };
+    const customer = JSON.parse(localStorage.getItem('Customer')) || [];
+    customer.push(customerData);
+    localStorage.setItem('Customer', JSON.stringify(customer)); // storing state in LS
+  }
+  componentDidMount() {
+    const customerData = JSON.parse(localStorage.getItem('Customer'));
+    this.setState({
+      customerData
+    });
+    console.log(customerData);
   }
 
   render() {
@@ -57,8 +62,9 @@ class App extends Component {
           handleSubmit={this.handleSubmit}
         />
         <WaitingList
+          customerData={this.state.customerData}
           formData={this.state.formData}
-          />
+        />
       </div>
     );
   }
