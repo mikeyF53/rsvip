@@ -9,7 +9,6 @@ const WaitingList = props => {
   return (
     <div>
       <h1>Waiting List</h1>
-      {/* <p>{props.customerData.name}</p> */}
       {props.customerData ? (
         props.customerData.map(e => {
           return (

@@ -33,13 +33,21 @@ class App extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    const {
+      name,
+      phone,
+      adults,
+      highChair,
+      booster,
+      message
+    } = this.state.formData;
     const customerData = {
-      name: this.state.formData.name,
-      phone: this.state.formData.phone,
-      adults: this.state.formData.adults,
-      highChair: this.state.formData.highChair,
-      booster: this.state.formData.booster,
-      message: this.state.formData.message
+      name,
+      phone,
+      adults,
+      highChair,
+      booster,
+      message
     };
     const customer = JSON.parse(localStorage.getItem('Customer')) || [];
     customer.push(customerData);
