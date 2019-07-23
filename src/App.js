@@ -8,14 +8,16 @@ import './App.css';
 class App extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
+      submitted: false,
       customerData: [],
       formData: {
         name: '',
         phone: '',
         adults: '',
-        highChair: '',
-        booster: '',
+        highChair: 0,
+        booster: 0,
         message: ''
       }
     };
@@ -54,6 +56,22 @@ class App extends Component {
     const customer = JSON.parse(localStorage.getItem('Customer')) || [];
     customer.push(customerData);
     localStorage.setItem('Customer', JSON.stringify(customer)); // storing state in LS
+    this.setState({
+      submitted: true
+    });
+    setTimeout(() => {
+      this.setState({
+        submitted: false,
+        formData: {
+          name: '',
+          phone: '',
+          adults: '',
+          highChair: 0,
+          booster: 0,
+          message:''
+        }
+      });
+    }, 5000);
   }
   componentDidMount() {
     const customerData = JSON.parse(localStorage.getItem('Customer'));
@@ -72,6 +90,7 @@ class App extends Component {
           render={props => (
             <RsvpForm
               {...props}
+              submitted={this.state.submitted}
               formData={this.state.formData}
               handleChange={this.handleChange}
               handleSubmit={this.handleSubmit}

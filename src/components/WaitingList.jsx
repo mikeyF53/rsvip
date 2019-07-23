@@ -13,7 +13,7 @@ const WaitingList = props => {
         props.customerData.map(e => {
           return (
             <ul>
-              {e.name} {e.phone} {e.adults} {e.highchair} {e.booster}
+              Name: {e.name}, Phone: {e.phone}, # of adults: {e.adults}, # High-chair: {e.highchair}, # of Booster {e.booster}
             </ul>
           );
         })
