@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import RsvpForm from './components/RsvpForm';
 import WaitingList from './components/WaitingList';
+import { Route, Link } from 'react-router-dom';
+
 import './App.css';
 
 class App extends Component {
@@ -64,14 +66,28 @@ class App extends Component {
   render() {
     return (
       <div>
-        <RsvpForm
-          formData={this.state.formData}
-          handleChange={this.handleChange}
-          handleSubmit={this.handleSubmit}
+        <Route
+          exact
+          path='/'
+          render={props => (
+            <RsvpForm
+              {...props}
+              formData={this.state.formData}
+              handleChange={this.handleChange}
+              handleSubmit={this.handleSubmit}
+            />
+          )}
         />
-        <WaitingList
-          customerData={this.state.customerData}
-          formData={this.state.formData}
+        <Route
+          exact
+          path='/list'
+          render={props => (
+            <WaitingList
+              {...props}
+              customerData={this.state.customerData}
+              formData={this.state.formData}
+            />
+          )}
         />
       </div>
     );
