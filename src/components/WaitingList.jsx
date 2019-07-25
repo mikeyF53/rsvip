@@ -2,19 +2,17 @@ import React, { Component } from 'react';
 import RsvpForm from './RsvpForm';
 
 const WaitingList = props => {
-  // console.log(props.customerData.name);
-  // const customerInfo = JSON.parse(localStorage.getItem('Customer'));
-  // console.log(customerInfo[0].name);
-
   return (
-    <div>
+    <div className='waiting-list'>
       <h1>Waiting List</h1>
       {props.customerData ? (
         props.customerData.map(e => {
           return (
-            <ul>
-              Name: {e.name}, Phone: {e.phone}, # of adults: {e.adults}, # High-chair: {e.highchair}, # of Booster {e.booster}
-            </ul>
+            <div className='customer-info' key={e.time}>
+              Checked in at: {e.time} Name: {e.name}, Phone: {e.phone}, # of
+              adults: {e.adults}, # High-chair: {e.highchair}, # of Booster{' '}
+              {e.booster}
+            </div>
           );
         })
       ) : (

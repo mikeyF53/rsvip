@@ -12,13 +12,15 @@ class App extends Component {
     this.state = {
       submitted: false,
       customerData: [],
+      // date: new Date().toLocaleString(),
       formData: {
         name: '',
         phone: '',
         adults: '',
-        highChair: 0,
-        booster: 0,
-        message: ''
+        highChair: '',
+        booster: '',
+        message: '',
+        time: new Date().toLocaleTimeString()
       }
     };
     this.handleChange = this.handleChange.bind(this);
@@ -43,7 +45,8 @@ class App extends Component {
       adults,
       highChair,
       booster,
-      message
+      message,
+      time
     } = this.state.formData;
     const customerData = {
       name,
@@ -51,7 +54,8 @@ class App extends Component {
       adults,
       highChair,
       booster,
-      message
+      message,
+      time
     };
     const customer = JSON.parse(localStorage.getItem('Customer')) || [];
     customer.push(customerData);
@@ -68,10 +72,11 @@ class App extends Component {
           adults: '',
           highChair: 0,
           booster: 0,
-          message:''
+          message: '',
+          time: new Date().toLocaleTimeString()
         }
       });
-    }, 5000);
+    }, 2500);
   }
   componentDidMount() {
     const customerData = JSON.parse(localStorage.getItem('Customer'));
@@ -90,6 +95,7 @@ class App extends Component {
           render={props => (
             <RsvpForm
               {...props}
+              date={this.state.date}
               submitted={this.state.submitted}
               formData={this.state.formData}
               handleChange={this.handleChange}
