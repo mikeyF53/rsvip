@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 const RsvpForm = props => {
   const { name, phone, adults, highChair, booster, message } = props.formData;
@@ -45,7 +45,7 @@ const RsvpForm = props => {
         />
         <div className='infants'>
           <h2>Optional</h2>
-          {/* <label># of highchairs</label> */}
+          <label>Highchairs?</label>
           <input
             type='number'
             name='highChair'
@@ -54,7 +54,7 @@ const RsvpForm = props => {
             onChange={props.handleChange}
             placeholder='How many high chairs?'
           />
-          {/* <label># of booster-seats</label> */}
+          <label>Booster seats?</label>
           <input
             type='number'
             name='booster'

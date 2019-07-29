@@ -6,6 +6,8 @@ import { Route, Link } from 'react-router-dom';
 import './App.css';
 
 class App extends Component {
+
+
   constructor(props) {
     super(props);
 
@@ -17,8 +19,8 @@ class App extends Component {
         name: '',
         phone: '',
         adults: '',
-        highChair: '',
-        booster: '',
+        highChair: 0,
+        booster: 0,
         message: '',
         time: new Date().toLocaleTimeString()
       }
@@ -27,7 +29,6 @@ class App extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
   handleChange(e) {
-    e.preventDefault();
     const { name, value } = e.target;
     this.setState(prevState => ({
       formData: {
@@ -84,7 +85,10 @@ class App extends Component {
       customerData
     });
     console.log(customerData);
-  }
+  } 
+  // pageReload() {
+  //   alert('hi')
+  // }
 
   render() {
     return (

@@ -15,9 +15,9 @@
   text-align: center;
 }
 input {
-  box-shadow: 0 5px 12px 2px rgba(0,0,0,.5);
+  box-shadow: 0 5px 12px 2px rgba(0, 0, 0, 0.5);
   font-size: 15px;
-  background-color: #76D5EB;
+  background-color: #76d5eb;
   color: green;
   text-align: center;
   border-radius: 15px;
@@ -28,13 +28,12 @@ input {
 }
 
 .form-page h1 {
-  box-shadow: 0 5px 12px 2px rgba(0,0,0,.5);
-  color:white;
-  background-color: #348AA7;
+  box-shadow: 0 5px 12px 2px rgba(0, 0, 0, 0.5);
+  color: white;
+  background-color: #348aa7;
   margin: 0;
   padding: 5px;
   line-height: 60px;
-  
 }
 
 .message {
@@ -47,3 +46,41 @@ input {
   width: 150px;
   margin: 0 auto;
 }
+
+.waiting-container {
+  width: minmax(400px, 800px);
+  display: flex;
+  justify-self: center;
+  justify-content: space-evenly;
+  
+}
+
+.customer-info {
+  border: 1px solid black;
+  text-align: left;
+  margin: 7px;
+  line-height: 5px;
+  border-radius: 15px;
+  display: flex;
+}
+
+.total-box {
+ display: flex;
+ flex-direction: row;
+ justify-content: space-between;
+}
+
+.total-num {
+  margin: 0 20px 0 50px ;
+  align-self: center;
+}
+.waiting-title {
+  text-align: center;
+}
+
+.customer-info p {
+  margin: 15px 20px;
+  /* display: inline-block; */
+}
+
+
